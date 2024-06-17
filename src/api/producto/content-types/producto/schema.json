@@ -39,7 +39,7 @@
           "localized": true
         }
       },
-      "type": "integer",
+      "type": "biginteger",
       "required": true
     },
     "Impuesto": {
@@ -68,15 +68,6 @@
       "type": "integer",
       "required": true
     },
-    "Descripcion": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text",
-      "required": true
-    },
     "Vendedor": {
       "pluginOptions": {
         "i18n": {
@@ -96,17 +87,26 @@
       "required": true
     },
     "Imagenes": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "videos"
       ],
-      "type": "media",
-      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Descripcion": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "type": "blocks",
       "required": true
     }
   }

@@ -392,7 +392,7 @@ export interface ApiProductoProducto extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Precio: Attribute.Integer &
+    Precio: Attribute.BigInteger &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -419,13 +419,6 @@ export interface ApiProductoProducto extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Descripcion: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     Vendedor: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -441,6 +434,13 @@ export interface ApiProductoProducto extends Schema.CollectionType {
         };
       }>;
     Imagenes: Attribute.Media<'images' | 'videos', true> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Descripcion: Attribute.Blocks &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
