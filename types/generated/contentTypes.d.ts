@@ -385,62 +385,62 @@ export interface ApiProductoProducto extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Titulo: Attribute.String &
+    titulo: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Precio: Attribute.BigInteger &
+    precio: Attribute.BigInteger &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Impuesto: Attribute.Integer &
+    impuesto: Attribute.Integer &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Descuento: Attribute.Integer &
+    descuento: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Stock: Attribute.Integer &
+    stock: Attribute.Integer &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Vendedor: Attribute.String &
+    vendedor: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Categorias: Attribute.String &
+    categorias: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Imagenes: Attribute.Media<'images' | 'videos', true> &
+    imagenes: Attribute.Media<'images' | 'videos', true> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Descripcion: Attribute.Blocks &
+    descripcion: Attribute.Blocks &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {

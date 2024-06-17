@@ -24,7 +24,7 @@
       },
       "type": "uid"
     },
-    "Titulo": {
+    "titulo": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -33,7 +33,7 @@
       "type": "string",
       "required": true
     },
-    "Precio": {
+    "precio": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -42,7 +42,7 @@
       "type": "biginteger",
       "required": true
     },
-    "Impuesto": {
+    "impuesto": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -51,7 +51,7 @@
       "type": "integer",
       "required": true
     },
-    "Descuento": {
+    "descuento": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -59,7 +59,7 @@
       },
       "type": "integer"
     },
-    "Stock": {
+    "stock": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -68,7 +68,7 @@
       "type": "integer",
       "required": true
     },
-    "Vendedor": {
+    "vendedor": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -77,7 +77,7 @@
       "type": "string",
       "required": true
     },
-    "Categorias": {
+    "categorias": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -86,7 +86,7 @@
       "type": "string",
       "required": true
     },
-    "Imagenes": {
+    "imagenes": {
       "type": "media",
       "multiple": true,
       "required": true,
@@ -100,7 +100,7 @@
         }
       }
     },
-    "Descripcion": {
+    "descripcion": {
       "pluginOptions": {
         "i18n": {
           "localized": true
