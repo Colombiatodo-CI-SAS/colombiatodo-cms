@@ -368,85 +368,24 @@ export interface ApiProductoProducto extends Schema.CollectionType {
     singularName: 'producto';
     pluralName: 'productos';
     displayName: 'Producto';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    uuid: Attribute.UID &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    titulo: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    precio: Attribute.BigInteger &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    impuesto: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    descuento: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    stock: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    vendedor: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    categorias: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    imagenes: Attribute.Media<'images' | 'videos', true> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    descripcion: Attribute.Blocks &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    uuid: Attribute.UID & Attribute.Required;
+    titulo: Attribute.String & Attribute.Required;
+    precio: Attribute.BigInteger & Attribute.Required;
+    impuesto: Attribute.Integer & Attribute.Required;
+    descuento: Attribute.Integer;
+    stock: Attribute.BigInteger & Attribute.Required;
+    vendedor: Attribute.String & Attribute.Required;
+    categorias: Attribute.Enumeration<
+      ['Calzado', 'Moda', 'Tecnolog\u00EDa', 'Accesorios']
+    > &
+      Attribute.Required;
+    imagenes: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
+    descripcion: Attribute.Blocks & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -462,12 +401,6 @@ export interface ApiProductoProducto extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::producto.producto',
-      'oneToMany',
-      'api::producto.producto'
-    >;
-    locale: Attribute.String;
   };
 }
 
