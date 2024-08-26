@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_dimensiones_dimensiones",
+  "info": {
+    "displayName": "dimensiones",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "alto": {
+      "type": "integer"
+    },
+    "ancho": {
+      "type": "integer"
+    },
+    "largo": {
+      "type": "integer"
+    },
+    "peso": {
+      "type": "integer"
+    }
+  }
+}

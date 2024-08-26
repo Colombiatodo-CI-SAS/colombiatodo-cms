@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sellers",
+  "info": {
+    "singularName": "seller",
+    "pluralName": "sellers",
+    "displayName": "Seller",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identificacion": {
+      "type": "biginteger",
+      "required": true
+    },
+    "razonSocial": {
+      "type": "string",
+      "required": true
+    },
+    "tipoIdentificacion": {
+      "type": "enumeration",
+      "enum": [
+        "NIT",
+        "CC",
+        "CE"
+      ],
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "celular": {
+      "type": "biginteger",
+      "required": true
+    },
+    "direccion": {
+      "type": "text",
+      "required": true
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria"
+    },
+    "productos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producto.producto",
+      "mappedBy": "seller"
+    }
+  }
+}

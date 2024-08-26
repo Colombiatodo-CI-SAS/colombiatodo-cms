@@ -4,7 +4,8 @@
   "info": {
     "singularName": "producto",
     "pluralName": "productos",
-    "displayName": "Producto"
+    "displayName": "Producto",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,32 +35,35 @@
       "type": "biginteger",
       "required": true
     },
-    "vendedor": {
-      "type": "string",
-      "required": true
-    },
-    "categorias": {
-      "type": "enumeration",
-      "enum": [
-        "Calzado",
-        "Moda",
-        "Tecnología",
-        "Accesorios"
-      ],
-      "required": true
-    },
     "imagenes": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "videos"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+      ]
     },
     "descripcion": {
       "type": "blocks",
       "required": true
+    },
+    "dimensiones": {
+      "displayName": "dimensiones",
+      "type": "component",
+      "repeatable": true,
+      "component": "dimensiones.dimensiones"
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria"
+    },
+    "seller": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::seller.seller",
+      "inversedBy": "productos"
     }
   }
 }

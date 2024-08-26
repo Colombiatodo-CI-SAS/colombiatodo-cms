@@ -362,48 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiProductoProducto extends Schema.CollectionType {
-  collectionName: 'productos';
-  info: {
-    singularName: 'producto';
-    pluralName: 'productos';
-    displayName: 'Producto';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    uuid: Attribute.UID & Attribute.Required;
-    titulo: Attribute.String & Attribute.Required;
-    precio: Attribute.BigInteger & Attribute.Required;
-    impuesto: Attribute.Integer & Attribute.Required;
-    descuento: Attribute.Integer;
-    stock: Attribute.BigInteger & Attribute.Required;
-    vendedor: Attribute.String & Attribute.Required;
-    categorias: Attribute.Enumeration<
-      ['Calzado', 'Moda', 'Tecnolog\u00EDa', 'Accesorios']
-    > &
-      Attribute.Required;
-    imagenes: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
-    descripcion: Attribute.Blocks & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::producto.producto',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::producto.producto',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -830,6 +788,132 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoriaCategoria extends Schema.CollectionType {
+  collectionName: 'categorias';
+  info: {
+    singularName: 'categoria';
+    pluralName: 'categorias';
+    displayName: 'Categoria';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categoria: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::categoria.categoria',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::categoria.categoria',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductoProducto extends Schema.CollectionType {
+  collectionName: 'productos';
+  info: {
+    singularName: 'producto';
+    pluralName: 'productos';
+    displayName: 'Producto';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    uuid: Attribute.UID & Attribute.Required;
+    titulo: Attribute.String & Attribute.Required;
+    precio: Attribute.BigInteger & Attribute.Required;
+    impuesto: Attribute.Integer & Attribute.Required;
+    descuento: Attribute.Integer;
+    stock: Attribute.BigInteger & Attribute.Required;
+    imagenes: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
+    descripcion: Attribute.Blocks & Attribute.Required;
+    dimensiones: Attribute.Component<'dimensiones.dimensiones', true>;
+    categorias: Attribute.Relation<
+      'api::producto.producto',
+      'oneToMany',
+      'api::categoria.categoria'
+    >;
+    seller: Attribute.Relation<
+      'api::producto.producto',
+      'manyToOne',
+      'api::seller.seller'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::producto.producto',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::producto.producto',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSellerSeller extends Schema.CollectionType {
+  collectionName: 'sellers';
+  info: {
+    singularName: 'seller';
+    pluralName: 'sellers';
+    displayName: 'Seller';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    identificacion: Attribute.BigInteger & Attribute.Required;
+    razonSocial: Attribute.String & Attribute.Required;
+    tipoIdentificacion: Attribute.Enumeration<['NIT', 'CC', 'CE']> &
+      Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    celular: Attribute.BigInteger & Attribute.Required;
+    direccion: Attribute.Text & Attribute.Required;
+    categorias: Attribute.Relation<
+      'api::seller.seller',
+      'oneToMany',
+      'api::categoria.categoria'
+    >;
+    productos: Attribute.Relation<
+      'api::seller.seller',
+      'oneToMany',
+      'api::producto.producto'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::seller.seller',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::seller.seller',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -840,7 +924,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::producto.producto': ApiProductoProducto;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -849,6 +932,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::categoria.categoria': ApiCategoriaCategoria;
+      'api::producto.producto': ApiProductoProducto;
+      'api::seller.seller': ApiSellerSeller;
     }
   }
 }
