@@ -54,16 +54,17 @@
       "repeatable": true,
       "component": "dimensiones.dimensiones"
     },
-    "categorias": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::categoria.categoria"
-    },
     "seller": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::seller.seller",
       "inversedBy": "productos"
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "producto"
     }
   }
 }

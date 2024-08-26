@@ -4,7 +4,8 @@
   "info": {
     "singularName": "categoria",
     "pluralName": "categorias",
-    "displayName": "Categoria"
+    "displayName": "Categoria",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,6 +15,23 @@
     "categoria": {
       "type": "string",
       "required": true
+    },
+    "descripcion": {
+      "type": "text",
+      "required": true
+    },
+    "producto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::producto.producto",
+      "inversedBy": "categoria"
+    },
+    "imagen": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
