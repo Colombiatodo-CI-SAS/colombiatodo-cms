@@ -906,6 +906,8 @@ export interface ApiSellerSeller extends Schema.CollectionType {
       'oneToMany',
       'api::producto.producto'
     >;
+    departamento: Attribute.String & Attribute.Required;
+    ciudad: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

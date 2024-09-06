@@ -51,6 +51,14 @@
       "relation": "oneToMany",
       "target": "api::producto.producto",
       "mappedBy": "seller"
+    },
+    "departamento": {
+      "type": "string",
+      "required": true
+    },
+    "ciudad": {
+      "type": "string",
+      "required": true
     }
   }
 }
