@@ -27,11 +27,17 @@
       "inversedBy": "categoria"
     },
     "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "categoria",
+      "required": true
     }
   }
 }

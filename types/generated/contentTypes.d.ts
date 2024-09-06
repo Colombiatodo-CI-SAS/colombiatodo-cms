@@ -808,6 +808,8 @@ export interface ApiCategoriaCategoria extends Schema.CollectionType {
       'api::producto.producto'
     >;
     imagen: Attribute.Media<'images'>;
+    slug: Attribute.UID<'api::categoria.categoria', 'categoria'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
