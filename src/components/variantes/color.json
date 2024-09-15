@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_variantes_colors",
+  "info": {
+    "displayName": "color"
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "stock_color": {
+      "type": "integer",
+      "required": true
+    },
+    "imagen_referencia": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

@@ -14,7 +14,8 @@
   "attributes": {
     "uuid": {
       "type": "uid",
-      "required": true
+      "required": true,
+      "targetField": "titulo"
     },
     "titulo": {
       "type": "string",
@@ -31,10 +32,6 @@
     "descuento": {
       "type": "integer"
     },
-    "stock": {
-      "type": "biginteger",
-      "required": true
-    },
     "imagenes": {
       "type": "media",
       "multiple": true,
@@ -48,10 +45,10 @@
       "type": "blocks",
       "required": true
     },
-    "dimensiones": {
+    "dimensiones_producto": {
       "displayName": "dimensiones",
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "dimensiones.dimensiones"
     },
     "seller": {
@@ -65,6 +62,20 @@
       "relation": "oneToMany",
       "target": "api::categoria.categoria",
       "mappedBy": "producto"
+    },
+    "tallas_disponibles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "variantes.talla"
+    },
+    "dimensiones_empaque": {
+      "type": "component",
+      "repeatable": false,
+      "component": "dimensiones.dimensiones"
+    },
+    "stock": {
+      "type": "integer",
+      "required": true
     }
   }
 }

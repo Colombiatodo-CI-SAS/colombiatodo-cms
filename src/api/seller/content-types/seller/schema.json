@@ -59,6 +59,13 @@
     "ciudad": {
       "type": "string",
       "required": true
+    },
+    "logo_empresa": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

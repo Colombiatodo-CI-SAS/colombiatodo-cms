@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_variantes_tallas",
+  "info": {
+    "displayName": "talla",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "talla": {
+      "type": "string",
+      "required": true
+    },
+    "stock_talla": {
+      "type": "integer",
+      "required": true
+    },
+    "colores_disponibles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "variantes.color"
+    }
+  }
+}

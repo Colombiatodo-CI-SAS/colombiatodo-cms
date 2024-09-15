@@ -840,15 +840,15 @@ export interface ApiProductoProducto extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    uuid: Attribute.UID & Attribute.Required;
+    uuid: Attribute.UID<'api::producto.producto', 'titulo'> &
+      Attribute.Required;
     titulo: Attribute.String & Attribute.Required;
     precio: Attribute.BigInteger & Attribute.Required;
     impuesto: Attribute.Integer & Attribute.Required;
     descuento: Attribute.Integer;
-    stock: Attribute.BigInteger & Attribute.Required;
     imagenes: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
     descripcion: Attribute.Blocks & Attribute.Required;
-    dimensiones: Attribute.Component<'dimensiones.dimensiones', true>;
+    dimensiones_producto: Attribute.Component<'dimensiones.dimensiones'>;
     seller: Attribute.Relation<
       'api::producto.producto',
       'manyToOne',
@@ -859,6 +859,9 @@ export interface ApiProductoProducto extends Schema.CollectionType {
       'oneToMany',
       'api::categoria.categoria'
     >;
+    tallas_disponibles: Attribute.Component<'variantes.talla', true>;
+    dimensiones_empaque: Attribute.Component<'dimensiones.dimensiones'>;
+    stock: Attribute.Integer & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -908,6 +911,7 @@ export interface ApiSellerSeller extends Schema.CollectionType {
     >;
     departamento: Attribute.String & Attribute.Required;
     ciudad: Attribute.String & Attribute.Required;
+    logo_empresa: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

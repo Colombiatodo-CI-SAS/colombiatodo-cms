@@ -8,16 +8,20 @@
   "options": {},
   "attributes": {
     "alto": {
-      "type": "integer"
+      "type": "decimal",
+      "required": true
     },
     "ancho": {
-      "type": "integer"
+      "type": "decimal",
+      "required": true
     },
     "largo": {
-      "type": "integer"
+      "type": "decimal",
+      "required": true
     },
     "peso": {
-      "type": "integer"
+      "type": "decimal",
+      "required": true
     }
   }
 }
