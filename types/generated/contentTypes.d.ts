@@ -802,9 +802,9 @@ export interface ApiCategoriaCategoria extends Schema.CollectionType {
   attributes: {
     categoria: Attribute.String & Attribute.Required;
     descripcion: Attribute.Text & Attribute.Required;
-    producto: Attribute.Relation<
+    productos: Attribute.Relation<
       'api::categoria.categoria',
-      'manyToOne',
+      'manyToMany',
       'api::producto.producto'
     >;
     imagen: Attribute.Media<'images'>;
@@ -854,14 +854,14 @@ export interface ApiProductoProducto extends Schema.CollectionType {
       'manyToOne',
       'api::seller.seller'
     >;
-    categoria: Attribute.Relation<
-      'api::producto.producto',
-      'oneToMany',
-      'api::categoria.categoria'
-    >;
     tallas_disponibles: Attribute.Component<'variantes.talla', true>;
     dimensiones_empaque: Attribute.Component<'dimensiones.dimensiones'>;
     stock: Attribute.Integer & Attribute.Required;
+    categorias: Attribute.Relation<
+      'api::producto.producto',
+      'manyToMany',
+      'api::categoria.categoria'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

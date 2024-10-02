@@ -57,12 +57,6 @@
       "target": "api::seller.seller",
       "inversedBy": "productos"
     },
-    "categoria": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::categoria.categoria",
-      "mappedBy": "producto"
-    },
     "tallas_disponibles": {
       "type": "component",
       "repeatable": true,
@@ -76,6 +70,12 @@
     "stock": {
       "type": "integer",
       "required": true
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "productos"
     }
   }
 }

@@ -20,11 +20,11 @@
       "type": "text",
       "required": true
     },
-    "producto": {
+    "productos": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::producto.producto",
-      "inversedBy": "categoria"
+      "inversedBy": "categorias"
     },
     "imagen": {
       "type": "media",
