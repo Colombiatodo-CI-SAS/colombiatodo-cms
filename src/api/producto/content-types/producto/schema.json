@@ -76,6 +76,11 @@
       "relation": "manyToMany",
       "target": "api::categoria.categoria",
       "mappedBy": "productos"
+    },
+    "especificaciones": {
+      "type": "component",
+      "repeatable": true,
+      "component": "detalle-producto.especificaciones"
     }
   }
 }

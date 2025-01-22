@@ -862,6 +862,10 @@ export interface ApiProductoProducto extends Schema.CollectionType {
       'manyToMany',
       'api::categoria.categoria'
     >;
+    especificaciones: Attribute.Component<
+      'detalle-producto.especificaciones',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

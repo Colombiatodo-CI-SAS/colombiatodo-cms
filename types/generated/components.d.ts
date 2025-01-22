@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface DetalleProductoEspecificaciones extends Schema.Component {
+  collectionName: 'components_detalle_producto_especificaciones';
+  info: {
+    displayName: 'especificaciones';
+  };
+  attributes: {
+    titulo: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface DimensionesDimensiones extends Schema.Component {
   collectionName: 'components_dimensiones_dimensiones';
   info: {
@@ -43,6 +54,7 @@ export interface VariantesTalla extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'detalle-producto.especificaciones': DetalleProductoEspecificaciones;
       'dimensiones.dimensiones': DimensionesDimensiones;
       'variantes.color': VariantesColor;
       'variantes.talla': VariantesTalla;
